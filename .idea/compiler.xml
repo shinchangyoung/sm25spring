@@ -12,8 +12,15 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="day01.main" target="17" />
+      <module name="day01.test" target="17" />
       <module name="day011.aot" target="17" />
       <module name="day011.aotTest" target="17" />
+      <module name="day011.main" target="17" />
+      <module name="day012.main" target="17" />
+      <module name="day012.test" target="17" />
+      <module name="eud.sm.day011" target="17" />
+      <module name="eud.sm.day011.test" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -26,6 +33,18 @@
       <module name="day011.aotTest" options="-parameters" />
       <module name="day011.main" options="-parameters" />
       <module name="day011.test" options="-parameters" />
+      <module name="day012" options="-parameters" />
+      <module name="day012.main" options="-parameters" />
+      <module name="day012.test" options="-parameters" />
+      <module name="end.sm.day01" options="-parameters" />
+      <module name="end.sm.day01.main" options="-parameters" />
+      <module name="end.sm.day01.test" options="-parameters" />
+      <module name="eud.sm.day011" options="-parameters" />
+      <module name="eud.sm.day011.main" options="-parameters" />
+      <module name="eud.sm.day011.test" options="-parameters" />
+      <module name="eud.sm.day012" options="-parameters" />
+      <module name="eud.sm.day012.main" options="-parameters" />
+      <module name="eud.sm.day012.test" options="-parameters" />
     </option>
   </component>
 </project>
