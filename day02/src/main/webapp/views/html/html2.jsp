@@ -27,6 +27,10 @@
   <div class="form-group">
     <label for="comment">Comment:</label>
     <textarea class="form-control" rows="5" id="comment"></textarea>
+
+  </div>
+  <div style="display: flex; justify-content: flex-end;">
+    <button  type="button" class="btn btn-primary">Primary</button>
   </div>
 
   <div class="container">

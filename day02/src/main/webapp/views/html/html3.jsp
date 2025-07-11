@@ -10,7 +10,7 @@
 
 
 <div class="col-sm-9">
-  <h2>HTML2 Center Page</h2>
+  <h2>HTML33 Center Page</h2>
 
   <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -34,6 +34,7 @@
       </div>
     </div>
 
+
     <!-- Left and right controls -->
     <a class="carousel-control-prev" href="#demo" data-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -41,6 +42,19 @@
     <a class="carousel-control-next" href="#demo" data-slide="next">
       <span class="carousel-control-next-icon"></span>
     </a>
+
+    <div class="container">
+      <h2>Form control: textarea</h2>
+      <p>The form below contains a textarea for comments:</p>
+      <form action="html/html33" method="post">
+        <div class="form-group">
+          <label for="comment">Comment:</label>
+          <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
 
   </div>
 </div>
