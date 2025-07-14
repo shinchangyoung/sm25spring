@@ -1,12 +1,9 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: toyoa
-  Date: 2025-07-09
-  Time: 오후 1:19
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -23,6 +20,28 @@
             background: #aaa;
         }
     </style>
+    <script>
+        let index = {
+            init:function(){
+                let url = '/gettime';
+
+                setInterval(()=>{
+                    $.ajax({
+                        url:url,
+                        success:(data)=>{
+                            $('#ctime').text(data);
+                        },
+                        error:()=>{}
+                    });
+                }, 1000);
+
+            }
+        }
+        $().ready(()=>{
+            index.init();
+        });
+
+    </script>
 </head>
 <body>
 <ul class="nav justify-content-end">
@@ -40,6 +59,7 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>HTML5 & JavaScript</h1>
     <p>HTML5, CSS, JavaScript, jQuery, AJAX</p>
+    <p id="ctime"></p>
 </div>
 <%-- Header End --%>
 
@@ -61,7 +81,10 @@
                 <a class="nav-link" href="/js">JS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/jquery">JQuery</a>
+                <a class="nav-link" href="/jq">JQuery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/ajax">AJAX</a>
             </li>
         </ul>
     </div>
@@ -79,7 +102,7 @@
             </c:otherwise>
         </c:choose>
 
-        <%-- Center Start ........  --%>
+        <%-- Left Menu End ........  --%>
         <c:choose>
             <c:when test="${center == null}">
                 <jsp:include page="center.jsp"/>
@@ -88,11 +111,9 @@
                 <jsp:include page="${center}.jsp"/>
             </c:otherwise>
         </c:choose>
+        <%-- Center Start ........  --%>
+
         <%-- Center End ........  --%>
-
-
-
-
     </div>
 </div>
 

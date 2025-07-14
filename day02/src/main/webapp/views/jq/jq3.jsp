@@ -10,10 +10,10 @@
         this.check();        // 유효성 검사 호출
       });
 
-      // 성별 라디오버튼이 변경될 때 메시지 제거
-      $('input[name="gender"]').change(() => {
+      $('input[name="gender"]:checked').change(()=>{
         $('#gender_desc').text('');
       });
+
     },
 
     // 유효성 검사 함수
