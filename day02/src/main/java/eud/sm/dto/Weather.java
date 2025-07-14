@@ -10,8 +10,10 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 
-public class HotItem {
-    private int cnt;
-    private String title;
-    private int updown;
+public class Weather {
+    private String region;
+    private int temperature; //온도
+    private int wet;// 날씨
+    private int wetimg;// 날씨
+
 }
