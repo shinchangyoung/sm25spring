@@ -22,4 +22,16 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/wf") // 루트 경로로 들어올 때 처리
+    public String wf(Model model) {
+        model.addAttribute("center","wf");
+        return "index";
+    }
+
+    @RequestMapping("/wt") // 루트 경로로 들어올 때 처리
+    public String wt(Model model) {
+        model.addAttribute("center","wt");
+        return "index";
+    }
+
 }

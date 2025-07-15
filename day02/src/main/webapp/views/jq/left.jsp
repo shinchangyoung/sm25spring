@@ -4,13 +4,13 @@
   <p>JQuery Left Menu</p>
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a class="nav-link" href="/jquery/jq1">JQ1</a>
+      <a class="nav-link" href="/jq/jq1">JQ1</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/jquery/jq2">JQ2</a>
+      <a class="nav-link" href="/jq/jq2">JQ2</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/jquery/jq3">JQ3</a>
+      <a class="nav-link" href="/jq/jq3">JQ3</a>
     </li>
   </ul>
   <hr class="d-sm-none">

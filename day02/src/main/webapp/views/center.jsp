@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <style>
     #results {
         width: 200px;
@@ -9,6 +12,11 @@
     #weathers {
         width: 200px;
         border: 2px solid blue;
+    }
+
+    .wh{
+        width: 500px;
+        border: 2px solid greenyellow;
     }
 
 
@@ -43,6 +51,39 @@
                     }
                 });
             }, 10000);
+            let date = new Date();
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let day = date.getDate();
+
+            if(month < 10){
+                month = '0' + month;
+            }
+            if(day < 10){
+                day = '0' + day;
+            }
+
+            alert(year + '' +  month + '' + day);
+
+            let today = year + '' + month + '' + day + '0600';
+
+
+            let wh1url = ''; /*URL*/
+            let queryParams = '?' + encodeURIComponent('serviceKey') + '='+''; /*Service Key*/
+            queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+            queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+            queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('JSON'); /**/
+            queryParams += '&' + encodeURIComponent('stnId') + '=' + encodeURIComponent('108'); /**/
+            queryParams += '&' + encodeURIComponent('tmFc') + '=' + encodeURIComponent(today); /**/
+
+            $.ajax({
+                url:wh1url + queryParams,
+                success:(data)=>{
+                let wh1Data = data.response.body.items.item[0].wfSv;
+                $('#wh1').text(wh1Data);
+            }
+        })
+
 
             //weather
             // let url1 = '/weatherdata';
@@ -104,7 +145,7 @@
 <div class="col-sm-7">
     <h2>TITLE HEADING</h2>
     <h5>Title description, Sep 2, 2017</h5>
-    <div class="fakeimg">Fake Image</div>
+    <div class="wh" id="wh1"></div>
 </div>
 
 
