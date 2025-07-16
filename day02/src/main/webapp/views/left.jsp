@@ -11,7 +11,7 @@
       <a class="nav-link" href="/wt">weather</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link" href="/map">map</a>
     </li>
   </ul>
   <hr class="d-sm-none">

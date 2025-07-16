@@ -34,4 +34,10 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/map") // 루트 경로로 들어올 때 처리
+    public String map(Model model) {
+        model.addAttribute("center","map");
+        return "index";
+    }
+
 }

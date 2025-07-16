@@ -9,8 +9,7 @@ class Day02ApplicationTests {
 
     @Test
     void contextLoads() {
-        log.info("hello");
-
+        log.info("Start Test ...");
     }
 
 }
