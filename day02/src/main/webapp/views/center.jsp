@@ -63,7 +63,7 @@
                 day = '0' + day;
             }
 
-            alert(year + '' +  month + '' + day);
+          //  alert(year + '' +  month + '' + day);
 
             let today = year + '' + month + '' + day + '0600';
 

@@ -1,28 +1,28 @@
 package eud.sm.controller;
 
 import eud.sm.dto.Cust;
+import eud.sm.dto.Product;
 import eud.sm.service.CustService;
+import eud.sm.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-
 @Controller
 @Slf4j
-@RequestMapping("/cust")
+@RequestMapping("/product")
 @RequiredArgsConstructor
-public class CustController {
+public class ProductController {
 
-    final CustService custService;
+    final ProductService productService;
 
-    String dir = "cust/";
+    String dir = "product/";
     @RequestMapping("")
-    public String cust(Model model) {
+    public String product(Model model) {
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"center");
         return "index";
@@ -34,32 +34,35 @@ public class CustController {
         return "index";
     }
     @RequestMapping("/delete")
-    public String delete(Model model, @RequestParam("id") String id) throws Exception {
-        custService.remove(id);
-        return "redirect:/cust/get";
+    public String delete(Model model, @RequestParam("id") int id) throws Exception {
+        productService.remove(id);
+        return "redirect:/product/get";
     }
     @RequestMapping("/detail")
-    public String detail(Model model, @RequestParam("id") String id) throws Exception {
-        Cust cust = null;
-        cust = custService.get(id);
-        model.addAttribute("cust", cust);
+    public String detail(Model model, @RequestParam("id") int id) throws Exception {
+        Product product = null;
+        product = productService.get(id);
+        model.addAttribute("p", product);
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"detail");
         return "index";
     }
-
-    @RequestMapping("/updateimpl")
-    public String udpateimpl(Model model, Cust cust) throws Exception {
-        custService.modify(cust);
-        return "redirect:/cust/detail?id="+cust.getCustId();
+    @RequestMapping("/registerimpl")
+    public String registerimpl(Model model, Product product) throws Exception {
+        productService.register(product);
+        return "redirect:/product/get";
     }
-
+    @RequestMapping("/updateimpl")
+    public String updateimpl(Model model, Product product) throws Exception {
+        productService.modify(product);
+        return "redirect:/product/detail?id="+product.getProductId();
+    }
     @RequestMapping("/get")
     public String get(Model model) throws Exception {
-        List<Cust> list = null;
-        list = custService.get();
+        List<Product> list = null;
 
-        model.addAttribute("clist", list);
+        list = productService.get();
+        model.addAttribute("plist", list);
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"get");
         return "index";
