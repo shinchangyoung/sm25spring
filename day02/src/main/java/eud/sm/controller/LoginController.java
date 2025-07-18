@@ -41,13 +41,13 @@ public class LoginController {
                             HttpSession session) {
 
         log.info("로그인 시도: ID={}, PWD={}", id, pwd);
-        if(id.equals("id01") && pwd.equals("pwd01")){
-            session.setAttribute("loginid",id);
-        }else{
-            model.addAttribute("loginstate","fail");
-            model.addAttribute("center","login");
-        }
-        model.addAttribute("center","login");
+//        if(id.equals("id01") && pwd.equals("pwd01")){
+//            session.setAttribute("loginid",id);
+//        }else{
+//            model.addAttribute("loginstate","fail");
+//            model.addAttribute("center","login");
+//        }
+//        model.addAttribute("center","login");
         return "index";
     }
 

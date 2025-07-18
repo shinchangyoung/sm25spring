@@ -18,17 +18,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustController {
 
-    //트랜젝션 처리
-    CustService custService;
+    final CustService custService;
 
     String dir = "cust/";
     @RequestMapping("")
-    public String cust(Model model) throws Exception {
-        List<Cust> list = null;
-        list = custService.get();
-
-
-        model.addAttribute("clist", list);
+    public String cust(Model model) {
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"center");
         return "index";
@@ -40,26 +34,22 @@ public class CustController {
         return "index";
     }
     @RequestMapping("/detail")
-    public String detail(Model model,
-    @RequestParam("id") String id) throws Exception {
+    public String detail(Model model, @RequestParam("id") String id) throws Exception {
         Cust cust = null;
         cust = custService.get(id);
-
-        model.addAttribute("cust", "detail");
+        model.addAttribute("cust", cust);
         model.addAttribute("left", dir+"left");
-        model.addAttribute("center", dir+"add");
+        model.addAttribute("center", dir+"detail");
         return "index";
     }
-
     @RequestMapping("/get")
-    public String get(Model model) {
+    public String get(Model model) throws Exception {
+        List<Cust> list = null;
+        list = custService.get();
 
+        model.addAttribute("clist", list);
         model.addAttribute("left", dir+"left");
         model.addAttribute("center", dir+"get");
         return "index";
     }
 }
-
-
-
-

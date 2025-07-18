@@ -5,10 +5,12 @@
 <mapper namespace="eud.sm.repository.ProductRepository">
 
     <select id="select" parameterType="Integer" resultType="Product">
-        SELECT * FROM product WHERE product_id=#{productId}
+        SELECT * FROM product p
+                          INNER JOIN cate c ON p.cate_id=c.cate_id WHERE p.product_id=#{productId}
     </select>
     <select id="selectAll" resultType="Product">
-        SELECT * FROM product
+        select * from product p
+                          inner join cate c on p.cate_id = c.cate_id
     </select>
     <insert id="insert" parameterType="Product">
         INSERT INTO product VALUES (0,#{productName},#{productPrice},#{discountRate}, #{productImg}, NOW(), NOW(), #{cateId})
