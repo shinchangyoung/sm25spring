@@ -11,8 +11,7 @@ public class MainController {
 
     @RequestMapping("/") // 루트 경로로 들어올 때 처리
     public String main(Model model) {
-        return "index"; // templates/index.html 을 의미
-
+        return "index";
     }
 
     @RequestMapping("/about") // 루트 경로로 들어올 때 처리
