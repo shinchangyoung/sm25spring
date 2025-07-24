@@ -34,7 +34,7 @@ class ProductTest {
 
     @Test
     void insert() {
-        Product cust = Product.builder().productName("반바지").productPrice(10000).productImg("pp.jpg").discountRate(0.3).cateId(10).build();
+        Product cust = Product.builder().productName("반바지55").productPrice(10000).productImg("pp.jpg").discountRate(0.3).cateId(10).build();
         try {
             productService.register(cust);
             log.info("Insert End ------------------------------------------");

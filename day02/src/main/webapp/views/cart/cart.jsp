@@ -3,7 +3,7 @@
 
 <%-- Center Page --%>
 <div class="col-sm-9">
-    <h2>Cust Get Page</h2>
+    <h2>Cart Page</h2>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -17,11 +17,11 @@
         <tbody>
         <c:forEach var="c" items="${carts}">
             <tr>
-                <td><img src="imgs/${c.productImg}" width="50px;"></td>
+                <td><img src="/imgs/${c.productImg}" width="50px;"></td>
                 <td>${c.productName}</td>
                 <td>${c.productPrice}</td>
                 <td>${c.productQt}</td>
-                <td>${c.productRegDate}</td>
+                <td>${c.cartRegdate}</td>
             </tr>
         </c:forEach>
         </tbody>

@@ -4,7 +4,7 @@
 
 <style>
     #product_table > tbody > tr > td > img {
-        width: 50px;
+        width: 100px;
     }
 </style>
 <%-- Center Page --%>
@@ -25,8 +25,8 @@
         <tbody>
         <c:forEach var="p" items="${plist}">
             <tr>
-                <td><img src="/img/${p.productImg}"></td>
-                <td><a href="/product/detail?id=${p.productId}">${p.productId}</a></td>
+                <td><img src="/imgs/${p.productImg}"></td>
+                <td><a href="/productitem/detail?id=${p.productId}">${p.productId}</a></td>
                 <td>${p.productName}</td>
                 <td><fmt:formatNumber type="number" pattern="###,###원" value="${p.productPrice}"/></td>
                 <td>${p.discountRate}</td>

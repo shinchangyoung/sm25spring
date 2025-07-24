@@ -5,5 +5,8 @@
 <div class="col-sm-9">
     <h2>Product Center Page</h2>
     <h5>Title description, Sep 2, 2017</h5>
+    <img src="/img/s1.png">
+    <hr>
+    <img src="/imgs/s2.png">
 
 </div>

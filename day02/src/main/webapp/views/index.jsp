@@ -4,7 +4,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -70,6 +69,9 @@
                 <a class="nav-link" href="/info">${sessionScope.logincust.custName}</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/cart?id=${sessionScope.logincust.custId}">Cart</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/logout">Logout</a>
             </li>
         </c:otherwise>
@@ -109,10 +111,12 @@
                 <a class="nav-link" href="/ajax">AJAX</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/productitem">productitem</a>
+                <a class="nav-link" href="/productitem">ProductItem</a>
             </li>
-
-            <c:if test="${sessionScope.logincust != null}">
+            <li class="nav-item">
+                <a class="nav-link" href="/productitem">ProductItem2</a>
+            </li>
+            <c:if test="${sessionScope.logincust.custId == 'admin'}">
                 <li class="nav-item">
                     <a class="nav-link" href="/cust">Cust</a>
                 </li>

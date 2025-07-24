@@ -25,3 +25,8 @@ mybatis:
 logging:
   level:
     root: info
+
+app:
+  dir:
+    imgdir: file:///C:/java/Sm2Spring//imgs/     # 화면 출력 용
+    uploadimgsdir: C:/java/Sm2Spring//imgs/    # 파일 Write 용

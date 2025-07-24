@@ -1,5 +1,6 @@
 package eud.sm.dto;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
 @AllArgsConstructor
@@ -18,4 +19,5 @@ public class Product {
     private Timestamp productUpdate;
     private int cateId;
     private String cateName;
+    private MultipartFile productImgFile;
 }

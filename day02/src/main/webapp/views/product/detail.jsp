@@ -28,7 +28,7 @@
 <div class="col-sm-9">
     <h2>Product Detail Page</h2>
     <form id="product_update_form">
-        <img src="/img/${p.productImg}">
+        <img src="/imgs/${p.productImg}">
         <div class="form-group">
             <label for="id">Id:</label>
             <p id="id">${p.productId}</p>
