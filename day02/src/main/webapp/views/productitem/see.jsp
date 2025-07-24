@@ -20,9 +20,31 @@
                 $('#total').text(total.toLocaleString('ko-KR') + ' 원');
                 $('#cnt').val(cnt);
             });
-            $('#add_btn').click(()=>{}); // AJAX
+            $('#add_btn').click(()=>{
+                const isLogin = "${sessionScope.logincust == null ? 'false' : 'true'}";
+
+                if (isLogin == "false") {
+                    alert('로그인이 필요합니다.');
+                    location.href = '/login';
+                    return;
+                }
+
+
+            }); // AJAX
             $('#go_btn').click(()=>{
-            });  // go cart
+                const isLogin = "${sessionScope.logincust == null ? 'false' : 'true'}";
+                const custId = "${sessionScope.logincust.custId}";
+
+                if(isLogin == "false"){
+                    alert('로그인을 해주세요.');
+                    // 필요시 로그인 페이지로 자동 이동
+                    // location.href = '/login';
+                    location.href = '/login';
+                    return; // 코드를 종료
+                }
+                location.href = '/cart?id=' + custId;
+            });
+
         }
     }
 

@@ -113,9 +113,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="/productitem">ProductItem</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/productitem">ProductItem2</a>
-            </li>
             <c:if test="${sessionScope.logincust.custId == 'admin'}">
                 <li class="nav-item">
                     <a class="nav-link" href="/cust">Cust</a>
