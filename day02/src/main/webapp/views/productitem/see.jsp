@@ -9,7 +9,7 @@
                 if(cnt > 0){
                     cnt = cnt - 1;
                     let total = cnt * ${p.productPrice};
-                    $('#total').text(total + ' 원');
+                    $('#total').text(total.toLocaleString('ko-KR') + '원');
                     $('#cnt').val(cnt);
                 }
             });
@@ -17,23 +17,16 @@
                 let cnt = Number($('#cnt').val());
                 cnt = cnt + 1;
                 let total = cnt * ${p.productPrice};
-                $('#total').text(total.toLocaleString('ko-KR') + ' 원');
+                $('#total').text(total.toLocaleString('ko-KR') + '원');
                 $('#cnt').val(cnt);
             });
             $('#add_btn').click(()=>{
-                const isLogin = "${sessionScope.logincust == null ? 'false' : 'true'}";
+                let productId = ${p.productId};
+                let custId = '${sessionScope.logincust.custId}';
+                let isLogin = "${sessionScope.logincust == null ? 'false' : 'true'}";
+                let cnt = $('#cnt').val();
 
-                if (isLogin == "false") {
-                    alert('로그인이 필요합니다.');
-                    location.href = '/login';
-                    return;
-                }
-
-
-            }); // AJAX
-            $('#go_btn').click(()=>{
-                const isLogin = "${sessionScope.logincust == null ? 'false' : 'true'}";
-                const custId = "${sessionScope.logincust.custId}";
+                $('#myModal').modal('hide');
 
                 if(isLogin == "false"){
                     alert('로그인을 해주세요.');
@@ -42,9 +35,35 @@
                     location.href = '/login';
                     return; // 코드를 종료
                 }
-                location.href = '/cart?id=' + custId;
-            });
 
+
+                $.ajax({
+                    url:'/addcart',
+                    data:{custId:custId, productId:productId, productQt:cnt},
+                    success:(result)=>{
+                        result ? alert('OK') : alert('FAIL');
+                    }
+                });
+
+            }); // AJAX
+            $('#go_btn').click(()=>{
+                let productId = '${p.productId}';
+                let isLogin = "${sessionScope.logincust == null ? 'false' : 'true'}";
+                let custId = '${sessionScope.logincust.custId}';
+                let cnt = $('#cnt').val();
+
+                if(isLogin == "false"){
+                    alert('로그인을 해주세요.');
+                    // 필요시 로그인 페이지로 자동 이동
+                    // location.href = '/login';
+                    location.href = '/login';
+                    return; // 코드를 종료
+                }
+
+                location.href = '/cart/add?custId='+custId
+                    +'&productId='+productId
+                    +'&productQt='+cnt;
+            });  // go cart
         }
     }
 
@@ -57,8 +76,7 @@
     <div class="row">
         <div class="col-sm-6">
             <h2>Product See Page</h2>
-            <img style="height: 300px; width: 300px" src="/imgs/${p.productImg}">
-
+            <img src="/imgs/${p.productImg}">
             <h3>${p.productId}</h3>
             <h3>${p.cateName}</h3>
             <h3>${p.productName}</h3>
@@ -80,6 +98,11 @@
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Cart</button>
         </div>
     </div>
+
+
+
+
+
 
 
 </div>

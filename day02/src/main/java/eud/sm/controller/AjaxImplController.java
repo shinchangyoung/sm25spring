@@ -1,7 +1,10 @@
 package eud.sm.controller;
 
+import eud.sm.dto.Cart;
 import eud.sm.dto.HotItem;
 import eud.sm.dto.Weather;
+import eud.sm.service.CartService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@RequiredArgsConstructor
 @RestController
 public class AjaxImplController {
+
+    final CartService cartService;
 
     @RequestMapping("/gettime")
     public Object getTime(){
@@ -18,6 +24,21 @@ public class AjaxImplController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(date);
     }
+
+    @RequestMapping("/addcart")
+
+    public Object addcart(Cart cart) throws Exception {
+        int result  = 1;
+        try{
+            cartService.register(cart);
+        }catch (Exception e){
+            result=0;
+            throw  e;
+        }
+
+        return result;
+    }
+
 
     @RequestMapping("/checkid")
     public Object checkid(@RequestParam("id") String id){

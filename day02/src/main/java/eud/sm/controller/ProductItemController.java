@@ -56,6 +56,9 @@ public class ProductItemController {
         return "index";
     }
 
+
+
+
     @RequestMapping("/see")
     public String see(Model model ,@RequestParam("id") int id) throws Exception {
         Product product = null;
@@ -91,4 +94,7 @@ public class ProductItemController {
         productService.register(product);
         return "redirect:/productitem/get";
     }
+
+
+
 }
